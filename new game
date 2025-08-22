@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎰 MEGA SLOT CASINO 🎰</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', monospace;
+      background: 
+        radial-gradient(circle at 20% 50%, #ff00ff22 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, #00ffff22 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, #ffff0022 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating particles background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: sparkle 20s linear infinite;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    @keyframes sparkle {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-100px); }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 20px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(255, 0, 255, 0.1),
+        transparent,
+        rgba(0, 255, 255, 0.1),
+        transparent,
+        rgba(255, 255, 0, 0.1),
+        transparent
+      );
+      animation: rotate 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* Welcome Bonus Page */
+    .welcome-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-align: center;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 3s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .bonus-amount {
+      font-size: 4rem;
+      font-weight: 900;
+      text-align: center;
+      color: #feca57;
+      margin: 30px 0;
+      text-shadow: 0 0 20px rgba(254, 202, 87, 0.6);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .bonus-text {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 20px 0;
+      opacity: 0.9;
+    }
+
+    .claim-button {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      margin: 10px 0;
+      font-family: 'Orbitron', monospace;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 20px rgba(255, 65, 108, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .claim-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(255, 65, 108, 0.6);
+    }
+
+    .back-button {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      font-family: 'Orbitron', monospace;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Home Page */
+    .user-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .user-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .user-balance {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #feca57;
+      text-shadow: 0 0 10px rgba(254, 202, 87, 0.5);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .menu-item {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 25px;
+      border-radius: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-item::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+      border-radius: 22px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .menu-item:hover::before {
+      opacity: 0.8;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .menu-item-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .menu-item-desc {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Game Page */
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .back-to-home {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-home:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .game-title {
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .credits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .credit-item {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 12px 15px;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .music-toggle {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #45b7d1, #667eea);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .music-toggle:hover {
+      transform: translateY(-2px);
+    }
+
+    .machine {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+      perspective: 1000px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .reel-container {
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    .reel {
+      width: 80px;
+      height: 80px;
+      background: 
+        linear-gradient(145deg, #2a2a3a, #1a1a2a),
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent);
+      border: 3px solid #444;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .reel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 100%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .reel-strip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 700%;
+      display: flex;
+      flex-direction: column;
+      transition: none;
+    }
+
+    .reel-strip.spinning {
+      animation: spinDown 0.1s linear infinite;
+    }
+
+    .reel-strip.stopping {
+      animation: none;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    @keyframes spinDown {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-14.28571%); }
+    }
+
+    .reel.spinning {
+      box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(255, 255, 0, 0.3);
+    }
+
+    .symbol {
+      height: 14.28571%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .reel.winning .symbol {
+      animation: winPulse 0.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes winPulse {
+      0% { 
+        transform: scale(1);
+        filter: brightness(1) drop-shadow(0 0 5px currentColor);
+      }
+      100% { 
+        transform: scale(1.2);
+        filter: brightness(1.5) drop-shadow(0 0 20px currentColor);
+      }
+    }
+
+    .controls {
+      text-align: center;
+      margin: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .spin-button {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Orbitron', monospace;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .spin-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .spin-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 15px 0;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .message.jackpot {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: jackpotPulse 0.5s ease-in-out infinite alternate, gradientShift 2s ease-in-out infinite;
+      font-size: 1.5rem;
+    }
+
+    @keyframes jackpotPulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    /* Deposit Page */
+    .deposit-warning {
+      background: linear-gradient(135deg, #ff9a56, #ff6b6b);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .payment-methods {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .payment-method {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      cursor: not-allowed;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .payment-icon {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.5rem;
+    }
+
+    .payment-info h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .payment-info p {
+      margin: 5px 0 0 0;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Settings Page */
+    .settings-section {
+      margin-bottom: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .settings-section h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      color: white;
+      font-family: 'Orbitron', monospace;
+      font-size: 1rem;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #4ecdc4;
+      box-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+    }
+
+    .save-button {
+      background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Orbitron', monospace;
+      transition: all 0.3s ease;
+    }
+
+    .save-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .development-notice {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+
+    .payline {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #ff6b6b);
+      transform: translateY(-50%) scaleX(0);
+      transition: transform 0.5s ease;
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
+    }
+
+    .payline.active {
+      transform: translateY(-50%) scaleX(1);
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px;
+        margin: 10px;
+        max-width: 95%;
+      }
+      
+      .welcome-title {
+        font-size: 2rem;
+      }
+      
+      .bonus-amount {
+        font-size: 3rem;
+      }
+      
+      .game-title {
+        font-size: 1.5rem;
+      }
+      
+      .reel {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .symbol {
+        font-size: 2rem;
+      }
+      
+      .user-info {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+      
+      .credits {
+        grid-template-columns: 1fr;
+      }
+      
+      .machine {
+        gap: 10px;
+      }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      .container {
+        max-width: 600px;
+        padding: 25px;
+      }
+      
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Welcome Bonus Page -->
+  <div id="welcomePage" class="page active">
+    <div class="container">
+      <h1 class="welcome-title">🎉 SELAMAT DATANG! 🎉</h1>
+      <div class="bonus-text">Anda mendapat bonus selamat datang!</div>
+      <div class="bonus-amount">💰 25.000</div>
+      <div class="bonus-text">Kredit gratis untuk memulai petualangan Anda!</div>
+      <button class="claim-button" onclick="claimBonus()">
+        🎁 KLAIM BONUS 🎁
+      </button>
+      <button class="back-button" onclick="goToHome()">
+        ⬅ LEWATI
+      </button>
+    </div>
+  </div>
+
+  <!-- Home Page -->
+  <div id="homePage" class="page">
+    <div class="container">
+      <div class="user-info">
+        <div class="user-name">👤 <span id="userName">Player</span></div>
+        <div class="user-balance">💰 <span id="userBalance">25000</span></div>
+      </div>
+      
+      <div class="menu-grid">
+        <div class="menu-item" onclick="goToGame()">
+          <span class="menu-item-icon">🎰</span>
+          <div class="menu-item-title">MAIN GAME</div>
+          <div class="menu-item-desc">Mainkan slot favorit Anda</div>
+        </div>
+        
+        <div class="menu-item" onclick="goToDeposit()">
+          <span class="menu-item-icon">💳</span>
+          <div class="menu-item-title">DEPOSIT</div>
+          <div class="menu-item-desc">Isi saldo akun Anda</div>
+        </div>
+        
+        <div class="menu-item" onclick="goToSettings()">
+          <span class="menu-item-icon">⚙️</span>
+          <div class="menu-item-title">PENGATURAN</div>
+          <div class="menu-item-desc">Kelola akun dan preferensi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Page -->
+  <div id="gamePage" class="page">
+    <div class="container">
+      <div class="game-header">
+        <button class="back-to-home" onclick="goToHome()">⬅</button>
+        <div class="game-title">🎰 SLOT GAME</div>
+        <div></div>
+      </div>
+      
+      <div class="credits">
+        <div class="credit-item">
+          <div>💰 Kredit</div>
+          <div id="gameCredits">25000</div>
+        </div>
+        <div class="credit-item">
+          <div>🏆 Menang</div>
+          <div id="gameWins">0</div>
+        </div>
+        <div class="credit-item music-toggle" onclick="toggleMusic()">
+          <span id="musicStatus">🎵 Musik: ON</span>
+        </div>
+      </div>
+
+      <div class="machine">
+        <div class="payline" id="payline"></div>
+        <div class="reel-container">
+          <div class="reel" id="reel1">
+            <div class="reel-strip">
+              <div class="symbol">🍒</div>
+              <div class="symbol">🍋</div>
+              <div class="symbol">🍊</div>
+              <div class="symbol">🍇</div>
+              <div class="symbol">⭐</div>
+              <div class="symbol">🔔</div>
+              <div class="symbol">💎</div>
+            </div>
+          </div>
+        </div>
+        <div class="reel-container">
+          <div class="reel" id="reel2">
+            <div class="reel-strip">
+              <div class="symbol">🍒</div>
+              <div class="symbol">🍋</div>
+              <div class="symbol">🍊</div>
+              <div class="symbol">🍇</div>
+              <div class="symbol">⭐</div>
+              <div class="symbol">🔔</div>
+              <div class="symbol">💎</div>
+            </div>
+          </div>
+        </div>
+        <div class="reel-container">
+          <div class="reel" id="reel3">
+            <div class="reel-strip">
+              <div class="symbol">🍒</div>
+              <div class="symbol">🍋</div>
+              <div class="symbol">🍊</div>
+              <div class="symbol">🍇</div>
+              <div class="symbol">⭐</div>
+              <div class="symbol">🔔</div>
+              <div class="symbol">💎</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="spin-button" id="spinBtn" onclick="spin()">
+          🎲 PUTAR SEKARANG! 🎲
+        </button>
+      </div>
+
+      <div class="message" id="message"></div>
+    </div>
+  </div>
+
+  <!-- Deposit Page -->
+  <div id="depositPage" class="page">
+    <div class="container">
+      <div class="game-header">
+        <button class="back-to-home" onclick="goToHome()">⬅</button>
+        <div class="game-title">💳 DEPOSIT</div>
+        <div></div>
+      </div>
+      
+      <div class="deposit-warning">
+        ⚠️ FITUR DALAM PENGEMBANGAN ⚠️<br>
+        Metode pembayaran akan segera tersedia
+      </div>
+      
+      <div class="payment-methods">
+        <div class="payment-method">
+          <div class="payment-icon">📱</div>
+          <div class="payment-info">
+            <h3>QRIS</h3>
+            <p>Scan QR code untuk pembayaran instan</p>
+          </div>
+        </div>
+        
+        <div class="payment-method">
+          <div class="payment-icon">💳</div>
+          <div class="payment-info">
+            <h3>E-Wallet</h3>
+            <p>OVO, GoPay, Dana, ShopeePay</p>
+          </div>
+        </div>
+        
+        <div class="payment-method">
+          <div class="payment-icon">🏦</div>
+          <div class="payment-info">
+            <h3>Transfer Bank</h3>
+            <p>BCA, Mandiri, BRI, BNI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Page -->
+  <div id="settingsPage" class="page">
+    <div class="container">
+      <div class="game-header">
+        <button class="back-to-home" onclick="goToHome()">⬅</button>
+        <div class="game-title">⚙️ PENGATURAN</div>
+        <div></div>
+      </div>
+      
+      <div class="settings-section">
+        <h3>👤 Profil Pengguna</h3>
+        <div class="input-group">
+          <label>Nama Pengguna:</label>
+          <input type="text" id="nameInput" placeholder="Masukkan nama Anda">
+        </div>
+        <button class="save-button" onclick="saveName()">💾 SIMPAN NAMA</button>
+      </div>
+      
+      <div class="settings-section">
+        <h3>🔐 Akun & Keamanan</h3>
+        <div class="development-notice">
+          🚧 Fitur login dan registrasi sedang dalam pengembangan
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h3>📊 Statistik Game</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+          <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+            <div style="font-size: 2rem;">🎰</div>
+            <div style="font-weight: 700; margin-top: 5px;">Total Spin</div>
+            <div id="totalSpins" style="font-size: 1.2rem; color: #4ecdc4;">0</div>
+          </div>
+          <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+            <div style="font-size: 2rem;">🏆</div>
+            <div style="font-weight: 700; margin-top: 5px;">Total Menang</div>
+            <div id="totalWinsSettings" style="font-size: 1.2rem; color: #feca57;">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <script>
+    // Game state
+    let gameState = {
+      credits: 25000,
+      wins: 0,
+      totalSpins: 0,
+      spinning: false,
+      betAmount: 100,
+      musicEnabled: true,
+      userName: 'Player',
+      bonusClaimed: false
+    };
+
+    // Load saved data
+    function loadGameData() {
+      const saved = localStorage.getItem('megaSlotData');
+      if (saved) {
+        const data = JSON.parse(saved);
+        gameState = { ...gameState, ...data };
+      }
+    }
+
+    // Save game data
+    function saveGameData() {
+      localStorage.setItem('megaSlotData', JSON.stringify(gameState));
+    }
+
+    // Sound System using Web Audio API
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    let spinSoundInterval = null;
+    let spinOscillator = null;
+    let spinGainNode = null;
+    
+    // Sound generation functions
+    function createBeepSound(frequency, duration, volume = 0.1) {
+      if (!gameState.musicEnabled) return;
+      
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+      oscillator.type = 'sine';
+      
+      gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+      gainNode.gain.linearRampToValueAtTime(volume, audioContext.currentTime + 0.01);
+      gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + duration);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + duration);
+    }
+
+    function startSpinSound() {
+      if (!gameState.musicEnabled) return;
+      
+      // Stop any existing spin sound
+      stopSpinSound();
+      
+      // Create continuous spinning sound (like a mechanical reel)
+      spinOscillator = audioContext.createOscillator();
+      spinGainNode = audioContext.createGain();
+      
+      // Create a filter for more realistic sound
+      const filter = audioContext.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(400, audioContext.currentTime);
+      
+      spinOscillator.connect(filter);
+      filter.connect(spinGainNode);
+      spinGainNode.connect(audioContext.destination);
+      
+      // Set oscillator properties for mechanical sound
+      spinOscillator.type = 'sawtooth';
+      spinOscillator.frequency.setValueAtTime(60, audioContext.currentTime);
+      
+      // Set initial volume
+      spinGainNode.gain.setValueAtTime(0, audioContext.currentTime);
+      spinGainNode.gain.linearRampToValueAtTime(0.03, audioContext.currentTime + 0.1);
+      
+      spinOscillator.start();
+      
+      // Add random variations to simulate mechanical spinning
+      spinSoundInterval = setInterval(() => {
+        if (spinOscillator && gameState.spinning) {
+          // Vary frequency slightly for realistic effect
+          const baseFreq = 60;
+          const variation = (Math.random() - 0.5) * 20;
+          spinOscillator.frequency.setValueAtTime(baseFreq + variation, audioContext.currentTime);
+          
+          // Add occasional "click" sounds
+          if (Math.random() < 0.3) {
+            createBeepSound(200 + Math.random() * 100, 0.05, 0.015);
+          }
+        }
+      }, 50);
+    }
+
+    function stopSpinSound() {
+      if (spinSoundInterval) {
+        clearInterval(spinSoundInterval);
+        spinSoundInterval = null;
+      }
+      
+      if (spinOscillator) {
+        try {
+          spinGainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.2);
+          spinOscillator.stop(audioContext.currentTime + 0.2);
+        } catch (e) {
+          // Handle any timing issues
+        }
+        spinOscillator = null;
+        spinGainNode = null;
+      }
+    }
+
+    function createSpinSound() {
+      // This function is kept for compatibility but now uses the new system
+      startSpinSound();
+    }
+
+    function createReelStopSound(reelIndex) {
+      if (!gameState.musicEnabled) return;
+      
+      const frequencies = [440, 523, 659];
+      createBeepSound(frequencies[reelIndex], 0.2, 0.05);
+      
+      setTimeout(() => {
+        createBeepSound(150, 0.1, 0.03);
+      }, 50);
+    }
+
+    function createWinSound() {
+      if (!gameState.musicEnabled) return;
+      
+      const notes = [523, 659, 784, 1047];
+      notes.forEach((note, index) => {
+        setTimeout(() => {
+          createBeepSound(note, 0.3, 0.06);
+        }, index * 100);
+      });
+    }
+
+    function createJackpotSound() {
+      if (!gameState.musicEnabled) return;
+      
+      const fanfare = [
+        { freq: 523, time: 0 }, { freq: 659, time: 200 }, { freq: 784, time: 400 },
+        { freq: 1047, time: 600 }, { freq: 784, time: 800 }, { freq: 1047, time: 1000 },
+        { freq: 1319, time: 1200 }, { freq: 1568, time: 1400 }
+      ];
+      
+      fanfare.forEach(note => {
+        setTimeout(() => {
+          createBeepSound(note.freq, 0.4, 0.08);
+        }, note.time);
+      });
+      
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          createBeepSound(1000 + Math.random() * 1000, 0.1, 0.03);
+        }, i * 200 + 1600);
+      }
+    }
+
+    function createButtonSound() {
+      if (!gameState.musicEnabled) return;
+      createBeepSound(800, 0.1, 0.05);
+    }
+
+    function initAudio() {
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+    }
+
+    // Navigation functions
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    function claimBonus() {
+      createButtonSound();
+      gameState.bonusClaimed = true;
+      gameState.credits = 25000;
+      saveGameData();
+      goToHome();
+    }
+
+    function goToHome() {
+      createButtonSound();
+      showPage('homePage');
+      updateHomeDisplay();
+    }
+
+    function goToGame() {
+      createButtonSound();
+      showPage('gamePage');
+      initializeReels();
+      updateGameDisplay();
+    }
+
+    function goToDeposit() {
+      createButtonSound();
+      showPage('depositPage');
+    }
+
+    function goToSettings() {
+      createButtonSound();
+      showPage('settingsPage');
+      document.getElementById('nameInput').value = gameState.userName;
+      updateSettingsDisplay();
+    }
+
+    // Update displays
+    function updateHomeDisplay() {
+      document.getElementById('userName').textContent = gameState.userName;
+      document.getElementById('userBalance').textContent = gameState.credits.toLocaleString();
+    }
+
+    function updateGameDisplay() {
+      document.getElementById('gameCredits').textContent = gameState.credits.toLocaleString();
+      document.getElementById('gameWins').textContent = gameState.wins;
+      document.getElementById('musicStatus').textContent = gameState.musicEnabled ? '🎵 Musik: ON' : '🔇 Musik: OFF';
+    }
+
+    function updateSettingsDisplay() {
+      document.getElementById('totalSpins').textContent = gameState.totalSpins;
+      document.getElementById('totalWinsSettings').textContent = gameState.wins;
+    }
+
+    // Settings functions
+    function saveName() {
+      createButtonSound();
+      const newName = document.getElementById('nameInput').value.trim();
+      if (newName && newName.length > 0) {
+        gameState.userName = newName;
+        saveGameData();
+        updateHomeDisplay();
+        
+        // Show success message
+        const originalText = event.target.textContent;
+        event.target.textContent = '✅ TERSIMPAN!';
+        event.target.style.background = 'linear-gradient(135deg, #4ecdc4, #45b7d1)';
+        
+        setTimeout(() => {
+          event.target.textContent = originalText;
+          event.target.style.background = '';
+        }, 2000);
+      }
+    }
+
+    function toggleMusic() {
+      createButtonSound();
+      gameState.musicEnabled = !gameState.musicEnabled;
+      updateGameDisplay();
+      saveGameData();
+      
+      // If music is turned off while spinning, stop the spin sound
+      if (!gameState.musicEnabled && gameState.spinning) {
+        stopSpinSound();
+      }
+      
+      if (gameState.musicEnabled) {
+        initAudio();
+        // If currently spinning and music was turned back on, restart spin sound
+        if (gameState.spinning) {
+          startSpinSound();
+        }
+      }
+    }
+
+    // Symbols with different weights
+    const symbols = [
+      { symbol: "🍒", weight: 25, payout: 2 },
+      { symbol: "🍋", weight: 25, payout: 2 },
+      { symbol: "🍊", weight: 20, payout: 3 },
+      { symbol: "🍇", weight: 15, payout: 4 },
+      { symbol: "⭐", weight: 8, payout: 8 },
+      { symbol: "🔔", weight: 5, payout: 15 },
+      { symbol: "💎", weight: 2, payout: 50 }
+    ];
+
+    function getRandomSymbol() {
+      const totalWeight = symbols.reduce((sum, s) => sum + s.weight, 0);
+      let random = Math.random() * totalWeight;
+      
+      for (const symbol of symbols) {
+        random -= symbol.weight;
+        if (random <= 0) return symbol;
+      }
+      return symbols[0];
+    }
+
+    // Game elements
+    const reels = document.querySelectorAll('.reel');
+    const reelStrips = document.querySelectorAll('.reel-strip');
+    const message = document.getElementById('message');
+    const spinBtn = document.getElementById('spinBtn');
+    const payline = document.getElementById('payline');
+
+    const reelPositions = [0, 0, 0];
+
+    function initializeReels() {
+      reelStrips.forEach((strip, reelIndex) => {
+        strip.innerHTML = '';
+        
+        const totalSymbols = symbols.length * 4;
+        for (let i = 0; i < totalSymbols; i++) {
+          const symbolDiv = document.createElement('div');
+          symbolDiv.className = 'symbol';
+          symbolDiv.textContent = symbols[i % symbols.length].symbol;
+          symbolDiv.setAttribute('data-symbol', symbols[i % symbols.length].symbol);
+          symbolDiv.setAttribute('data-payout', symbols[i % symbols.length].payout);
+          strip.appendChild(symbolDiv);
+        }
+        
+        strip.style.transform = 'translateY(0%)';
+        reelPositions[reelIndex] = 0;
+      });
+    }
+
+    function showMessage(text, isJackpot = false) {
+      message.textContent = text;
+      message.className = 'message show' + (isJackpot ? ' jackpot' : '');
+      
+      setTimeout(() => {
+        message.className = 'message';
+      }, 3000);
+    }
+
+    function spin() {
+      if (gameState.spinning) return;
+      if (gameState.credits < gameState.betAmount) {
+        showMessage('💸 Kredit tidak cukup!');
+        return;
+      }
+
+      initAudio();
+      createButtonSound();
+
+      gameState.spinning = true;
+      gameState.credits -= gameState.betAmount;
+      gameState.totalSpins++;
+      spinBtn.disabled = true;
+      spinBtn.textContent = '🎲 BERPUTAR... 🎲';
+
+      // Start continuous spinning sound
+      startSpinSound();
+
+      reels.forEach(reel => {
+        reel.classList.remove('winning');
+        reel.classList.add('spinning');
+      });
+      
+      reelStrips.forEach(strip => {
+        strip.classList.add('spinning');
+        strip.classList.remove('stopping');
+      });
+      
+      payline.classList.remove('active');
+
+      const results = [];
+      const spinDurations = [
+        2000 + Math.random() * 500,
+        2500 + Math.random() * 500,
+        3000 + Math.random() * 500
+      ];
+
+      reelStrips.forEach((strip, reelIndex) => {
+        setTimeout(() => {
+          const symbolObj = getRandomSymbol();
+          results[reelIndex] = symbolObj;
+          
+          createReelStopSound(reelIndex);
+          
+          strip.classList.remove('spinning');
+          strip.classList.add('stopping');
+          
+          const symbolHeight = 100 / 28;
+          const targetSymbolIndex = Math.floor(Math.random() * 7);
+          const finalPosition = -(targetSymbolIndex * symbolHeight);
+          
+          const visibleSymbol = strip.children[targetSymbolIndex];
+          visibleSymbol.textContent = symbolObj.symbol;
+          visibleSymbol.setAttribute('data-symbol', symbolObj.symbol);
+          visibleSymbol.setAttribute('data-payout', symbolObj.payout);
+          
+          strip.style.transform = `translateY(${finalPosition}%)`;
+          reelPositions[reelIndex] = targetSymbolIndex;
+          reels[reelIndex].classList.remove('spinning');
+          
+          reels[reelIndex].style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            reels[reelIndex].style.transform = 'scale(1)';
+          }, 200);
+          
+          if (reelIndex === 2) {
+            setTimeout(() => {
+              // Stop spinning sound when all reels stop
+              stopSpinSound();
+              
+              checkWin(results);
+              gameState.spinning = false;
+              spinBtn.disabled = false;
+              spinBtn.textContent = '🎲 PUTAR SEKARANG! 🎲';
+              updateGameDisplay();
+              updateHomeDisplay();
+              saveGameData();
+            }, 500);
+          }
+          
+        }, spinDurations[reelIndex]);
+      });
+
+      updateGameDisplay();
+    }
+
+    function checkWin(results) {
+      const symbols = results.map(r => r.symbol);
+      
+      if (symbols.every(symbol => symbol === symbols[0])) {
+        const payout = results[0].payout * gameState.betAmount;
+        gameState.credits += payout;
+        gameState.wins++;
+        
+        reels.forEach(reel => reel.classList.add('winning'));
+        payline.classList.add('active');
+        
+        showMessage(`🎉 JACKPOT! +${payout.toLocaleString()} KREDIT! 🎉`, true);
+        
+        createJackpotSound();
+        startConfetti();
+        setTimeout(stopConfetti, 4000);
+        
+        return;
+      }
+
+      const counts = {};
+      symbols.forEach(symbol => {
+        counts[symbol] = (counts[symbol] || 0) + 1;
+      });
+
+      const pairs = Object.entries(counts).filter(([symbol, count]) => count >= 2);
+      if (pairs.length > 0) {
+        const [symbol, count] = pairs[0];
+        const symbolObj = results.find(r => r.symbol === symbol);
+        const payout = Math.floor(symbolObj.payout * gameState.betAmount * 0.3);
+        
+        if (payout > 0) {
+          gameState.credits += payout;
+          gameState.wins++;
+          showMessage(`✨ ${count} sama! +${payout.toLocaleString()} kredit! ✨`);
+          
+          createWinSound();
+          
+          reels.forEach((reel, index) => {
+            if (symbols[index] === symbol) {
+              reel.classList.add('winning');
+            }
+          });
+        }
+        return;
+      }
+
+      const messages = [
+        "🎯 Coba lagi!",
+        "🍀 Semoga beruntung!",
+        "⚡ Hampir menang!",
+        "🎪 Terus bermain!",
+        "🌟 Keberuntungan menanti!"
+      ];
+      showMessage(messages[Math.floor(Math.random() * messages.length)]);
+    }
+
+    // Confetti system
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    let confettiActive = false;
+    const confettiParticles = [];
+
+    function initConfetti() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      for (let i = 0; i < 200; i++) {
+        confettiParticles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          vx: (Math.random() - 0.5) * 8,
+          vy: Math.random() * 3 + 2,
+          color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+          size: Math.random() * 4 + 2,
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 10
+        });
+      }
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (const particle of confettiParticles) {
+        ctx.save();
+        ctx.translate(particle.x, particle.y);
+        ctx.rotate(particle.rotation * Math.PI / 180);
+        ctx.fillStyle = particle.color;
+        ctx.fillRect(-particle.size/2, -particle.size/2, particle.size, particle.size);
+        ctx.restore();
+        
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        particle.rotation += particle.rotationSpeed;
+        
+        if (particle.y > canvas.height) {
+          particle.y = -10;
+          particle.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function startConfetti() {
+      confettiActive = true;
+      initConfetti();
+      animateConfetti();
+    }
+
+    function animateConfetti() {
+      if (confettiActive) {
+        drawConfetti();
+        requestAnimationFrame(animateConfetti);
+      }
+    }
+
+    function stopConfetti() {
+      confettiActive = false;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Window resize handler
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space' && !gameState.spinning && document.getElementById('gamePage').classList.contains('active')) {
+        e.preventDefault();
+        spin();
+      } else if (e.code === 'KeyM') {
+        e.preventDefault();
+        toggleMusic();
+      }
+    });
+
+    // Button click sounds
+    document.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        initAudio();
+      }
+    });
+
+    // Initialize game
+    document.addEventListener('DOMContentLoaded', () => {
+      loadGameData();
+      
+      // If bonus already claimed, go to home
+      if (gameState.bonusClaimed) {
+        showPage('homePage');
+        updateHomeDisplay();
+      }
+      
+      // Initialize canvas
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
