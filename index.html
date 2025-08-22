@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎰 MEGA SLOT CASINO 🎰</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', monospace;
+      background: 
+        radial-gradient(circle at 20% 50%, #ff00ff22 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, #00ffff22 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, #ffff0022 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating particles background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: sparkle 20s linear infinite;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    @keyframes sparkle {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-100px); }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(255, 0, 255, 0.1),
+        transparent,
+        rgba(0, 255, 255, 0.1),
+        transparent,
+        rgba(255, 255, 0, 0.1),
+        transparent
+      );
+      animation: rotate 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 40px;
+      text-align: center;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 3s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .credits {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .credit-item {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 15px 25px;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      min-width: 150px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .credit-item::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+      border-radius: 17px;
+      z-index: -1;
+      animation: borderGlow 2s linear infinite;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+
+    .machine {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 40px 0;
+      perspective: 1000px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .reel-container {
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    .reel {
+      width: 120px;
+      height: 120px;
+      background: 
+        linear-gradient(145deg, #2a2a3a, #1a1a2a),
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent);
+      border: 3px solid #444;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .reel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 100%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Reel strip container */
+    .reel-strip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 700%; /* 7 symbols * 100% */
+      display: flex;
+      flex-direction: column;
+      transition: none;
+    }
+
+    .reel-strip.spinning {
+      animation: spinDown 0.1s linear infinite;
+    }
+
+    .reel-strip.stopping {
+      animation: none;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    @keyframes spinDown {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-14.28571%); } /* Move one symbol down */
+    }
+
+    .reel.spinning {
+      box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(255, 255, 0, 0.3);
+    }
+
+    /* Individual symbol styling */
+    .symbol {
+      height: 14.28571%; /* 100% / 7 symbols */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    @keyframes symbolGlow {
+      0% { transform: scale(1); filter: brightness(1); }
+      100% { transform: scale(1.05); filter: brightness(1.2); }
+    }
+
+    .reel.winning .symbol {
+      animation: winPulse 0.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes winPulse {
+      0% { 
+        transform: scale(1);
+        filter: brightness(1) drop-shadow(0 0 5px currentColor);
+      }
+      100% { 
+        transform: scale(1.2);
+        filter: brightness(1.5) drop-shadow(0 0 20px currentColor);
+      }
+    }
+
+    .controls {
+      text-align: center;
+      margin: 30px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .spin-button {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      border: none;
+      padding: 20px 60px;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 10px 20px rgba(255, 65, 108, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      font-family: 'Orbitron', monospace;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-width: 200px;
+    }
+
+    .spin-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .spin-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 
+        0 15px 30px rgba(255, 65, 108, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .spin-button:hover::before {
+      left: 100%;
+    }
+
+    .spin-button:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .spin-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 20px 0;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      z-index: 2;
+    }
+
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .message.jackpot {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: jackpotPulse 0.5s ease-in-out infinite alternate, gradientShift 2s ease-in-out infinite;
+      font-size: 2.5rem;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+
+    @keyframes jackpotPulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+        margin: 20px;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .machine {
+        gap: 15px;
+      }
+      
+      .reel {
+        width: 100px;
+        height: 100px;
+        font-size: 3rem;
+      }
+      
+      .credits {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .credit-item {
+        min-width: auto;
+      }
+    }
+
+    /* Winning combinations highlight */
+    .payline {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #ff6b6b);
+      transform: translateY(-50%) scaleX(0);
+      transition: transform 0.5s ease;
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
+    }
+
+    .payline.active {
+      transform: translateY(-50%) scaleX(1);
+    }
+
+    /* Sound toggle button */
+    .sound-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      min-width: auto;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sound-toggle:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.1);
+    }
+
+    .sound-toggle.muted {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎰 MEGA SLOT CASINO 🎰</h1>
+    
+    <div class="credits">
+      <div class="credit-item">
+        <div>💰 Credits</div>
+        <div id="credits">1000</div>
+      </div>
+      <div class="credit-item">
+        <div>🏆 Wins</div>
+        <div id="wins">0</div>
+      </div>
+      <div class="credit-item">
+        <div>💎 Jackpots</div>
+        <div id="jackpots">0</div>
+      </div>
+      <div class="credit-item">
+        <button class="sound-toggle" id="soundToggle" onclick="toggleSound()">
+          🔊
+        </button>
+      </div>
+    </div>
+
+    <div class="machine">
+      <div class="payline" id="payline"></div>
+      <div class="reel-container">
+        <div class="reel" id="reel1">
+          <div class="reel-strip">
+            <div class="symbol">🍒</div>
+            <div class="symbol">🍋</div>
+            <div class="symbol">🍊</div>
+            <div class="symbol">🍇</div>
+            <div class="symbol">⭐</div>
+            <div class="symbol">🔔</div>
+            <div class="symbol">💎</div>
+          </div>
+        </div>
+      </div>
+      <div class="reel-container">
+        <div class="reel" id="reel2">
+          <div class="reel-strip">
+            <div class="symbol">🍒</div>
+            <div class="symbol">🍋</div>
+            <div class="symbol">🍊</div>
+            <div class="symbol">🍇</div>
+            <div class="symbol">⭐</div>
+            <div class="symbol">🔔</div>
+            <div class="symbol">💎</div>
+          </div>
+        </div>
+      </div>
+      <div class="reel-container">
+        <div class="reel" id="reel3">
+          <div class="reel-strip">
+            <div class="symbol">🍒</div>
+            <div class="symbol">🍋</div>
+            <div class="symbol">🍊</div>
+            <div class="symbol">🍇</div>
+            <div class="symbol">⭐</div>
+            <div class="symbol">🔔</div>
+            <div class="symbol">💎</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="spin-button" id="spinBtn" onclick="spin()">
+        🎲 SPIN TO WIN! 🎲
+      </button>
+    </div>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <script>
+    // Game state
+    let gameState = {
+      credits: 1000,
+      wins: 0,
+      jackpots: 0,
+      spinning: false,
+      betAmount: 10,
+      soundEnabled: true
+    };
+
+    // Sound System using Web Audio API
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Sound generation functions
+    function createBeepSound(frequency, duration, volume = 0.1) {
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+      oscillator.type = 'sine';
+      
+      gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+      gainNode.gain.linearRampToValueAtTime(volume, audioContext.currentTime + 0.01);
+      gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + duration);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + duration);
+    }
+
+    function createSpinSound() {
+      if (!gameState.soundEnabled) return;
+      
+      // Create spinning reel sound (low frequency rumble)
+      const duration = 0.1;
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          if (gameState.spinning) {
+            createBeepSound(80 + Math.random() * 40, 0.05, 0.02);
+          }
+        }, i * 100);
+      }
+    }
+
+    function createReelStopSound(reelIndex) {
+      if (!gameState.soundEnabled) return;
+      
+      // Different pitch for each reel
+      const frequencies = [440, 523, 659]; // A, C, E notes
+      createBeepSound(frequencies[reelIndex], 0.2, 0.05);
+      
+      // Add mechanical "thunk" sound
+      setTimeout(() => {
+        createBeepSound(150, 0.1, 0.03);
+      }, 50);
+    }
+
+    function createWinSound() {
+      if (!gameState.soundEnabled) return;
+      
+      // Rising pitch celebration sound
+      const notes = [523, 659, 784, 1047]; // C, E, G, C (one octave up)
+      notes.forEach((note, index) => {
+        setTimeout(() => {
+          createBeepSound(note, 0.3, 0.06);
+        }, index * 100);
+      });
+    }
+
+    function createJackpotSound() {
+      if (!gameState.soundEnabled) return;
+      
+      // Epic jackpot fanfare
+      const fanfare = [
+        { freq: 523, time: 0 },    // C
+        { freq: 659, time: 200 },  // E  
+        { freq: 784, time: 400 },  // G
+        { freq: 1047, time: 600 }, // C
+        { freq: 784, time: 800 },  // G
+        { freq: 1047, time: 1000 }, // C
+        { freq: 1319, time: 1200 }, // E
+        { freq: 1568, time: 1400 }  // G
+      ];
+      
+      fanfare.forEach(note => {
+        setTimeout(() => {
+          createBeepSound(note.freq, 0.4, 0.08);
+        }, note.time);
+      });
+      
+      // Add some sparkle sounds
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          createBeepSound(1000 + Math.random() * 1000, 0.1, 0.03);
+        }, i * 200 + 1600);
+      }
+    }
+
+    function createLoseSound() {
+      if (!gameState.soundEnabled) return;
+      
+      // Descending "aww" sound
+      const sadNotes = [392, 349, 311, 262]; // G, F, Eb, C
+      sadNotes.forEach((note, index) => {
+        setTimeout(() => {
+          createBeepSound(note, 0.4, 0.04);
+        }, index * 150);
+      });
+    }
+
+    function createButtonSound() {
+      if (!gameState.soundEnabled) return;
+      createBeepSound(800, 0.1, 0.05);
+    }
+
+    // Initialize audio context on first user interaction
+    function initAudio() {
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+    }
+
+    // Symbols with different weights for more realistic odds
+    const symbols = [
+      { symbol: "🍒", weight: 25, payout: 2 },
+      { symbol: "🍋", weight: 25, payout: 2 },
+      { symbol: "🍊", weight: 20, payout: 3 },
+      { symbol: "🍇", weight: 15, payout: 4 },
+      { symbol: "⭐", weight: 8, payout: 8 },
+      { symbol: "🔔", weight: 5, payout: 15 },
+      { symbol: "💎", weight: 2, payout: 50 }
+    ];
+
+    // Weighted random selection
+    function getRandomSymbol() {
+      const totalWeight = symbols.reduce((sum, s) => sum + s.weight, 0);
+      let random = Math.random() * totalWeight;
+      
+      for (const symbol of symbols) {
+        random -= symbol.weight;
+        if (random <= 0) return symbol;
+      }
+      return symbols[0];
+    }
+
+    // DOM elements
+    const reels = document.querySelectorAll('.reel');
+    const reelStrips = document.querySelectorAll('.reel-strip');
+    const message = document.getElementById('message');
+    const spinBtn = document.getElementById('spinBtn');
+    const creditsDisplay = document.getElementById('credits');
+    const winsDisplay = document.getElementById('wins');
+    const jackpotsDisplay = document.getElementById('jackpots');
+    const payline = document.getElementById('payline');
+
+    // Initialize reel positions
+    const reelPositions = [0, 0, 0];
+
+    // Create extended symbol strips for seamless spinning
+    function initializeReels() {
+      reelStrips.forEach((strip, reelIndex) => {
+        // Clear existing symbols
+        strip.innerHTML = '';
+        
+        // Create extended strip with repeated symbols for seamless loop
+        const totalSymbols = symbols.length * 4; // 4 repetitions
+        for (let i = 0; i < totalSymbols; i++) {
+          const symbolDiv = document.createElement('div');
+          symbolDiv.className = 'symbol';
+          symbolDiv.textContent = symbols[i % symbols.length].symbol;
+          symbolDiv.setAttribute('data-symbol', symbols[i % symbols.length].symbol);
+          symbolDiv.setAttribute('data-payout', symbols[i % symbols.length].payout);
+          strip.appendChild(symbolDiv);
+        }
+        
+        // Set initial position
+        strip.style.transform = 'translateY(0%)';
+        reelPositions[reelIndex] = 0;
+      });
+    }
+
+    // Update displays
+    function updateDisplays() {
+      creditsDisplay.textContent = gameState.credits;
+      winsDisplay.textContent = gameState.wins;
+      jackpotsDisplay.textContent = gameState.jackpots;
+      
+      // Update sound toggle button
+      const soundToggle = document.getElementById('soundToggle');
+      soundToggle.textContent = gameState.soundEnabled ? '🔊' : '🔇';
+      soundToggle.className = 'sound-toggle' + (gameState.soundEnabled ? '' : ' muted');
+    }
+
+    // Toggle sound on/off
+    function toggleSound() {
+      gameState.soundEnabled = !gameState.soundEnabled;
+      updateDisplays();
+      
+      if (gameState.soundEnabled) {
+        initAudio();
+        createButtonSound();
+      }
+    }
+
+    // Show message with animation
+    function showMessage(text, isJackpot = false) {
+      message.textContent = text;
+      message.className = 'message show' + (isJackpot ? ' jackpot' : '');
+      
+      setTimeout(() => {
+        message.className = 'message';
+      }, 3000);
+    }
+
+    // Main spin function
+    function spin() {
+      if (gameState.spinning) return;
+      if (gameState.credits < gameState.betAmount) {
+        showMessage('💸 Not enough credits! Game Over!');
+        createLoseSound();
+        return;
+      }
+
+      // Initialize audio on first interaction
+      initAudio();
+      createButtonSound();
+
+      gameState.spinning = true;
+      gameState.credits -= gameState.betAmount;
+      spinBtn.disabled = true;
+      spinBtn.textContent = '🎲 SPINNING... 🎲';
+
+      // Start spinning sound
+      createSpinSound();
+
+      // Clear previous win states
+      reels.forEach(reel => {
+        reel.classList.remove('winning');
+        reel.classList.add('spinning');
+      });
+      
+      reelStrips.forEach(strip => {
+        strip.classList.add('spinning');
+        strip.classList.remove('stopping');
+      });
+      
+      payline.classList.remove('active');
+
+      // Generate results for each reel
+      const results = [];
+      const spinDurations = [
+        2000 + Math.random() * 500,  // First reel
+        2500 + Math.random() * 500,  // Second reel  
+        3000 + Math.random() * 500   // Third reel
+      ];
+
+      // Stop each reel with staggered timing
+      reelStrips.forEach((strip, reelIndex) => {
+        setTimeout(() => {
+          // Choose random final symbol
+          const symbolObj = getRandomSymbol();
+          results[reelIndex] = symbolObj;
+          
+          // Play reel stop sound
+          createReelStopSound(reelIndex);
+          
+          // Stop spinning animation
+          strip.classList.remove('spinning');
+          strip.classList.add('stopping');
+          
+          // Calculate final position to show the selected symbol
+          // Each symbol is 1/28 of the strip height (100% / 28 symbols)
+          const symbolHeight = 100 / 28; // Percentage per symbol
+          const targetSymbolIndex = Math.floor(Math.random() * 7); // Pick one of the 7 different symbols
+          const finalPosition = -(targetSymbolIndex * symbolHeight);
+          
+          // Set the final symbol in the visible area
+          const visibleSymbol = strip.children[targetSymbolIndex];
+          visibleSymbol.textContent = symbolObj.symbol;
+          visibleSymbol.setAttribute('data-symbol', symbolObj.symbol);
+          visibleSymbol.setAttribute('data-payout', symbolObj.payout);
+          
+          // Animate to final position
+          strip.style.transform = `translateY(${finalPosition}%)`;
+          
+          reelPositions[reelIndex] = targetSymbolIndex;
+          
+          // Remove spinning class from reel
+          reels[reelIndex].classList.remove('spinning');
+          
+          // Scale effect when stopping
+          reels[reelIndex].style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            reels[reelIndex].style.transform = 'scale(1)';
+          }, 200);
+          
+          // Check if all reels have stopped
+          if (reelIndex === 2) { // Last reel
+            setTimeout(() => {
+              checkWin(results);
+              gameState.spinning = false;
+              spinBtn.disabled = false;
+              spinBtn.textContent = '🎲 SPIN TO WIN! 🎲';
+              updateDisplays();
+            }, 500);
+          }
+          
+        }, spinDurations[reelIndex]);
+      });
+
+      updateDisplays();
+    }
+
+    // Check for winning combinations
+    function checkWin(results) {
+      const symbols = results.map(r => r.symbol);
+      
+      // Check for three of a kind (jackpot)
+      if (symbols.every(symbol => symbol === symbols[0])) {
+        const payout = results[0].payout * gameState.betAmount;
+        gameState.credits += payout;
+        gameState.wins++;
+        gameState.jackpots++;
+        
+        reels.forEach(reel => reel.classList.add('winning'));
+        payline.classList.add('active');
+        
+        showMessage(`🎉 JACKPOT! +${payout} CREDITS! 🎉`, true);
+        
+        // Play jackpot sound and effects
+        createJackpotSound();
+        startConfetti();
+        setTimeout(stopConfetti, 4000);
+        
+        return;
+      }
+
+      // Check for two matching symbols
+      const counts = {};
+      symbols.forEach(symbol => {
+        counts[symbol] = (counts[symbol] || 0) + 1;
+      });
+
+      const pairs = Object.entries(counts).filter(([symbol, count]) => count >= 2);
+      if (pairs.length > 0) {
+        const [symbol, count] = pairs[0];
+        const symbolObj = results.find(r => r.symbol === symbol);
+        const payout = Math.floor(symbolObj.payout * gameState.betAmount * 0.3);
+        
+        if (payout > 0) {
+          gameState.credits += payout;
+          gameState.wins++;
+          showMessage(`✨ ${count} of a kind! +${payout} credits! ✨`);
+          
+          // Play win sound
+          createWinSound();
+          
+          // Highlight matching reels
+          reels.forEach((reel, index) => {
+            if (symbols[index] === symbol) {
+              reel.classList.add('winning');
+            }
+          });
+        }
+        return;
+      }
+
+      // No win
+      const messages = [
+        "🎯 Try again!",
+        "🍀 Better luck next time!",
+        "⚡ Almost there!",
+        "🎪 Keep spinning!",
+        "🌟 Fortune favors the bold!"
+      ];
+      showMessage(messages[Math.floor(Math.random() * messages.length)]);
+      
+      // Play lose sound occasionally (not every time to avoid annoyance)
+      if (Math.random() < 0.3) {
+        setTimeout(createLoseSound, 500);
+      }
+    }
+
+    // Confetti system
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    let confettiActive = false;
+    const confettiParticles = [];
+
+    function initConfetti() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      for (let i = 0; i < 200; i++) {
+        confettiParticles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          vx: (Math.random() - 0.5) * 8,
+          vy: Math.random() * 3 + 2,
+          color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+          size: Math.random() * 4 + 2,
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 10
+        });
+      }
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (const particle of confettiParticles) {
+        ctx.save();
+        ctx.translate(particle.x, particle.y);
+        ctx.rotate(particle.rotation * Math.PI / 180);
+        ctx.fillStyle = particle.color;
+        ctx.fillRect(-particle.size/2, -particle.size/2, particle.size, particle.size);
+        ctx.restore();
+        
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        particle.rotation += particle.rotationSpeed;
+        
+        if (particle.y > canvas.height) {
+          particle.y = -10;
+          particle.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function startConfetti() {
+      confettiActive = true;
+      initConfetti();
+      animateConfetti();
+    }
+
+    function animateConfetti() {
+      if (confettiActive) {
+        drawConfetti();
+        requestAnimationFrame(animateConfetti);
+      }
+    }
+
+    function stopConfetti() {
+      confettiActive = false;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Initialize game
+    initializeReels();
+    updateDisplays();
+    
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space' && !gameState.spinning) {
+        e.preventDefault();
+        spin();
+      } else if (e.code === 'KeyM') {
+        e.preventDefault();
+        toggleSound();
+      }
+    });
+
+    // Click sound on buttons
+    document.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        initAudio();
+        createButtonSound();
+      }
+    });
+  </script>
+</body>
+</html>
